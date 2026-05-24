@@ -6,12 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FRAME_COUNT = 63; // 00 to 62
-const SEQUENCE_PATH = "/sequence/Horizontal Main Sequence";
-
-// Pad number with leading zeros, e.g., 01, 12
-const currentFrame = (index: number) =>
-  `${SEQUENCE_PATH}${index.toString().padStart(2, "0")}.jpg`;
+const FRAME_COUNT = 47; // 00 to 46
 
 export default function ScrollyCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -22,10 +17,16 @@ export default function ScrollyCanvas() {
   useEffect(() => {
     // 1. Preload images
     const loadImages = async () => {
+      const isMobile = window.innerWidth < 768;
+      const prefix = isMobile 
+        ? "/sequence-mobile/Verticle Main Sequence" 
+        : "/sequence/Horizontal Main Sequence";
+      const getFrame = (index: number) => `${prefix}${index.toString().padStart(2, "0")}.jpg`;
+
       const promises = [];
       for (let i = 0; i < FRAME_COUNT; i++) {
         const img = new Image();
-        img.src = currentFrame(i);
+        img.src = getFrame(i);
         const promise = new Promise((resolve) => {
           img.onload = () => resolve(img);
         });
@@ -51,10 +52,12 @@ export default function ScrollyCanvas() {
       const img = imagesRef.current[frameRef.current.frame];
       if (!img) return;
 
-      // Object-fit: cover implementation
       const hRatio = canvas.width / img.width;
       const vRatio = canvas.height / img.height;
-      const ratio = Math.max(hRatio, vRatio);
+      
+      // On mobile, force vertical fit so the top/bottom never get cropped
+      const isMobileScreen = window.innerWidth < 768;
+      const ratio = isMobileScreen ? vRatio : Math.max(hRatio, vRatio);
       
       const centerShift_x = (canvas.width - img.width * ratio) / 2;
       const centerShift_y = (canvas.height - img.height * ratio) / 2;
@@ -92,7 +95,7 @@ export default function ScrollyCanvas() {
         trigger: "#scrolly-container",
         start: "top top",
         end: "bottom bottom",
-        scrub: 1, // 1 second smoothing
+        scrub: 0.2, // Faster, tighter smoothing
         onUpdate: render,
       },
     });

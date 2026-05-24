@@ -29,13 +29,13 @@ export default function ClientsSection() {
       <div className="w-full overflow-hidden flex whitespace-nowrap mask-image-fade py-8">
         <div className="flex w-max animate-marquee items-center transition-all duration-500 hover:[animation-play-state:paused]">
           {repeatedLogos.map((logo, i) => (
-            <div key={i} className="group mx-10 md:mx-20 flex-none relative h-16 w-40 md:h-20 md:w-56 min-w-[160px] md:min-w-[224px] cursor-pointer transition-transform duration-300 hover:scale-110">
+            <div key={i} className="group mx-6 md:mx-20 flex-none relative h-10 w-28 md:h-20 md:w-56 min-w-[112px] md:min-w-[224px] cursor-pointer transition-transform duration-300 hover:scale-110">
               {/* Base Logo (White/Monochrome) */}
               <Image 
                 src={`/clients/${logo}`} 
                 alt={logo.replace('.png', '')} 
                 fill 
-                sizes="(max-width: 768px) 160px, 224px"
+                sizes="(max-width: 768px) 112px, 224px"
                 className="object-contain opacity-70 group-hover:opacity-0 transition-opacity duration-300" 
               />
               
@@ -44,7 +44,7 @@ export default function ClientsSection() {
                 src={`/clients-colored/${logo}`} 
                 alt={`${logo.replace('.png', '')} colored`} 
                 fill 
-                sizes="(max-width: 768px) 160px, 224px"
+                sizes="(max-width: 768px) 112px, 224px"
                 className="object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-2xl" 
               />
             </div>

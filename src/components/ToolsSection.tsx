@@ -17,9 +17,9 @@ export default function ToolsSection() {
           {tools.map((t, i) => (
             <div 
               key={i} 
-              className={`w-16 h-16 md:w-20 md:h-20 rounded-xl flex items-center justify-center ${t.border} border ${t.bg} ${t.shadow} transition-transform hover:-translate-y-2 cursor-pointer`}
+              className={`w-12 h-12 md:w-20 md:h-20 rounded-xl flex items-center justify-center ${t.border} border ${t.bg} ${t.shadow} transition-transform hover:-translate-y-2 cursor-pointer`}
             >
-              <span className={`${t.color} font-sans font-bold text-2xl md:text-3xl`}>{t.name}</span>
+              <span className={`${t.color} font-sans font-bold text-lg md:text-3xl`}>{t.name}</span>
             </div>
           ))}
         </div>

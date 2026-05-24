@@ -29,7 +29,10 @@ export default function WorkPage() {
               {categories.map((cat) => (
                 <button
                   key={cat}
-                  onClick={() => setActiveCategory(cat)}
+                  onClick={() => {
+                    setActiveCategory(cat);
+                    window.scrollTo(0, 0);
+                  }}
                   className={`text-left px-4 py-3 rounded-xl tracking-widest text-[10px] md:text-xs uppercase transition-all duration-300 ${
                     activeCategory === cat
                       ? "bg-white/10 text-white font-bold border border-white/20"
@@ -44,7 +47,7 @@ export default function WorkPage() {
 
           {/* Right Column / Content Grid */}
           <section className="flex-grow">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className={`grid grid-cols-1 gap-6 ${activeCategory === "Short Form" ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
               {filteredProjects.map((p) => (
                 <VideoCard key={p.id} project={p} />
               ))}

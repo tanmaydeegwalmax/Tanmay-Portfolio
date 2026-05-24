@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Header />
       <main className="relative w-full bg-black">
-        <div id="scrolly-container" className="relative w-full h-[250vh]">
+        <div id="scrolly-container" className="relative w-full h-[150vh]">
           <ScrollyCanvas />
           <HeroOverlay />
         </div>

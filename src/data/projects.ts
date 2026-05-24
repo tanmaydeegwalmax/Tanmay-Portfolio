@@ -7,108 +7,222 @@ export type Project = {
   tag: string;
   youtubeId?: string;
   localVideo?: string;
+  localThumbnail?: string;
+  externalLink?: string;
+  objectFit?: "cover" | "contain";
 };
 
-export const categories = ["Featured", "Documentary", "Long Form", "Short Form", "Motion Graphics"];
+export const categories = ["Featured", "AI Special", "Long Form", "Short Form", "Motion Graphics"];
 
 export const projects: Project[] = [
+  // FEATURED
   {
     id: 101,
-    title: "Motion Reel 1",
-    subtitle: "Animations",
+    title: "10 Items I Don't Buy",
+    subtitle: "Featured Video",
     stats: "",
-    emoji: "✨",
+    emoji: "🌟",
     tag: "FEATURED",
-    localVideo: "/videos/animations.mp4"
+    localVideo: "/work/videos/10 Items I Don't Buy.mp4",
+    localThumbnail: "/work/thumbnails/10 Items I Don't BUY.jpg"
   },
   {
     id: 102,
-    title: "Motion Reel 2",
-    subtitle: "Animations",
+    title: "How To Pick The Best Mutual Fund",
+    subtitle: "Featured Video",
     stats: "",
-    emoji: "✨",
+    emoji: "📈",
     tag: "FEATURED",
-    localVideo: "/videos/animations.mp4"
+    localVideo: "/work/videos/How To Pick The Best Mutual Fund.mp4",
+    localThumbnail: "/work/thumbnails/How to Pick the Best Mutual Fund.jpg"
   },
   {
     id: 103,
-    title: "Motion Reel 3",
-    subtitle: "Animations",
+    title: "Important Things Before Buying A Solar",
+    subtitle: "Featured Video",
     stats: "",
-    emoji: "✨",
+    emoji: "☀️",
     tag: "FEATURED",
-    localVideo: "/videos/animations.mp4"
+    localVideo: "/work/videos/Important Things Before Buying A Solar.mp4",
+    localThumbnail: "/work/thumbnails/Important Things Before Buying A Solar.jpg"
+  },
+
+  // AI SPECIAL
+  {
+    id: 201,
+    title: "How To Use Credits Cards",
+    subtitle: "AI Generated",
+    stats: "",
+    emoji: "💳",
+    tag: "AI SPECIAL",
+    localVideo: "/work/videos/How To Use Credits Cards.mp4",
+    localThumbnail: "/work/thumbnails/How to Use Credits Cards.jpg"
   },
   {
-    id: 2,
-    title: "The Hidden Himalayas",
-    subtitle: "YouTube Documentary",
-    stats: "1.2M Views • Editing, Color, Sound Design",
-    emoji: "🏔️",
-    tag: "DOCUMENTARY",
-    youtubeId: "f5OHHihl7yw"
+    id: 202,
+    title: "Wealth Inequality",
+    subtitle: "AI Generated",
+    stats: "",
+    emoji: "💰",
+    tag: "AI SPECIAL",
+    localVideo: "/work/videos/Wealth Inequality.mp4",
+    localThumbnail: "/work/thumbnails/Wealth Inequality.jpg"
   },
+
+  // LONG FORM
   {
-    id: 3,
-    title: "Long Form Video 1",
+    id: 301,
+    title: "How to Invest in US Stocks",
     subtitle: "YouTube Long Form",
     stats: "",
-    emoji: "🎥",
+    emoji: "🇺🇸",
     tag: "LONG FORM",
     youtubeId: "-iSk-usAlFU"
   },
   {
-    id: 8,
-    title: "Long Form Video 2",
+    id: 302,
+    title: "What is LLP",
     subtitle: "YouTube Long Form",
     stats: "",
-    emoji: "🎞️",
+    emoji: "🏢",
     tag: "LONG FORM",
     youtubeId: "MpSCLsYg_UQ"
   },
   {
-    id: 9,
-    title: "Long Form Video 3",
+    id: 303,
+    title: "Solar Subsidy 2026 QNA",
+    subtitle: "YouTube Long Form",
+    stats: "",
+    emoji: "🌞",
+    tag: "LONG FORM",
+    youtubeId: "102c216YwFE"
+  },
+  {
+    id: 304,
+    title: "Why Indian shows are Dumb",
     subtitle: "YouTube Long Form",
     stats: "",
     emoji: "📺",
     tag: "LONG FORM",
     youtubeId: "ZA09MfZy8JU"
   },
+
+  // SHORT FORM
   {
-    id: 4,
-    title: "Stock Market Explained",
-    subtitle: "Groww",
-    stats: "530K Views • Motion Graphics",
-    emoji: "📊",
-    tag: "MOTION GRAPHICS",
-    youtubeId: "f5OHHihl7yw"
+    id: 401,
+    title: "Graphic Design Theory",
+    subtitle: "YouTube Short",
+    stats: "",
+    emoji: "🎨",
+    tag: "SHORT FORM",
+    youtubeId: "4KKda64i7OU"
   },
   {
-    id: 5,
-    title: "YouTube Short 1",
-    subtitle: "Vertical Edit",
+    id: 402,
+    title: "Term Insurance Masterclass",
+    subtitle: "YouTube Short",
     stats: "",
-    emoji: "📱",
+    emoji: "🛡️",
+    tag: "SHORT FORM",
+    youtubeId: "kUkug9xOeas"
+  },
+  {
+    id: 403,
+    title: "Censor Board Duopoly",
+    subtitle: "YouTube Short",
+    stats: "",
+    emoji: "🎬",
+    tag: "SHORT FORM",
+    youtubeId: "luGf9Eex5yc"
+  },
+  {
+    id: 404,
+    title: "How Zoho Saved Tax",
+    subtitle: "YouTube Short",
+    stats: "",
+    emoji: "💸",
+    tag: "SHORT FORM",
+    youtubeId: "ZcfvmEqRK-4"
+  },
+  {
+    id: 405,
+    title: "AI killed This Industry",
+    subtitle: "YouTube Short",
+    stats: "",
+    emoji: "🤖",
     tag: "SHORT FORM",
     youtubeId: "ZRKj1fdtRXI"
   },
   {
-    id: 6,
-    title: "YouTube Short 2",
-    subtitle: "Vertical Edit",
+    id: 406,
+    title: "Future of Video Editing",
+    subtitle: "YouTube Short",
     stats: "",
-    emoji: "⚡",
+    emoji: "✂️",
     tag: "SHORT FORM",
     youtubeId: "kDCO4wRHnsw"
   },
+
+  // MOTION GRAPHICS
   {
-    id: 7,
-    title: "YouTube Short 3",
-    subtitle: "Vertical Edit",
+    id: 501,
+    title: "Aoronary Arteries Angioplasty",
+    subtitle: "Motion Graphics",
     stats: "",
-    emoji: "🎬",
-    tag: "SHORT FORM",
-    youtubeId: "fz4MtJ1aEMg"
+    emoji: "🫀",
+    tag: "MOTION GRAPHICS",
+    localVideo: "/work/videos/Aoronary Arteries Angioplasty.mp4",
+    localThumbnail: "/work/thumbnails/Aoronary Arteries Angioplasty.jpg"
+  },
+  {
+    id: 502,
+    title: "Gold Investing Guide",
+    subtitle: "Motion Graphics",
+    stats: "",
+    emoji: "🥇",
+    tag: "MOTION GRAPHICS",
+    localVideo: "/work/videos/Gold Investing Guide.mp4",
+    localThumbnail: "/work/thumbnails/Gold Investing Guide.jpg"
+  },
+  {
+    id: 503,
+    title: "How To Pick The Best Mutual Fund",
+    subtitle: "Motion Graphics",
+    stats: "",
+    emoji: "📈",
+    tag: "MOTION GRAPHICS",
+    localVideo: "/work/videos/How To Pick The Best Mutual Fund.mp4",
+    localThumbnail: "/work/thumbnails/How to Pick the Best Mutual Fund.jpg"
+  },
+  {
+    id: 504,
+    title: "How To Use Credits Cards",
+    subtitle: "Motion Graphics",
+    stats: "",
+    emoji: "💳",
+    tag: "MOTION GRAPHICS",
+    localVideo: "/work/videos/How To Use Credits Cards.mp4",
+    localThumbnail: "/work/thumbnails/How to Use Credits Cards.jpg"
+  },
+  {
+    id: 505,
+    title: "Meta Logo Animation",
+    subtitle: "Motion Graphics",
+    stats: "",
+    emoji: "♾️",
+    tag: "MOTION GRAPHICS",
+    localVideo: "/work/videos/Meta Logo Animation.mp4",
+    localThumbnail: "/work/thumbnails/Meta Logo Animation.jpg"
+  },
+  {
+    id: 506,
+    title: "Viral 3D Reel",
+    subtitle: "Motion Graphics",
+    stats: "",
+    emoji: "🧊",
+    tag: "MOTION GRAPHICS",
+    localVideo: "/work/videos/Viral 3D Reel.mp4",
+    localThumbnail: "/work/thumbnails/Viral 3D Reel.jpg",
+    objectFit: "contain"
   }
 ];
