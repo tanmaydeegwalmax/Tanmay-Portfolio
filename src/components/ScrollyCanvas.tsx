@@ -26,14 +26,14 @@ export default function ScrollyCanvas() {
       for (let i = 0; i < FRAME_COUNT; i++) {
         const img = new Image();
         img.src = currentFrame(i);
-        promises.push(
-          new Promise((resolve) => {
-            img.onload = () => resolve(img);
-          })
-        );
+        const promise = new Promise((resolve) => {
+          img.onload = () => resolve(img);
+        });
+        promises.push(promise);
         imagesRef.current.push(img);
       }
-      await Promise.all(promises);
+      // Only wait for the first frame to load so the user sees the site immediately
+      await promises[0];
       setLoaded(true);
     };
 
