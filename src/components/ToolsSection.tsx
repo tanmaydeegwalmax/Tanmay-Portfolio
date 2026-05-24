@@ -19,14 +19,7 @@ export default function ToolsSection() {
               key={i} 
               className={`w-16 h-16 md:w-20 md:h-20 rounded-xl flex items-center justify-center ${t.border} border ${t.bg} ${t.shadow} transition-transform hover:-translate-y-2 cursor-pointer`}
             >
-              {t.isDaVinci ? (
-                <div className="w-8 h-8 rounded-full border-[2px] border-white/10 flex items-center justify-center overflow-hidden bg-black relative">
-                   <div className="absolute inset-0 bg-gradient-to-br from-red-500 via-green-500 to-blue-500 opacity-50" />
-                   <div className="w-3 h-3 bg-white rounded-sm rotate-45 relative z-10" />
-                </div>
-              ) : (
-                <span className={`${t.color} font-sans font-bold text-2xl md:text-3xl`}>{t.name}</span>
-              )}
+              <span className={`${t.color} font-sans font-bold text-2xl md:text-3xl`}>{t.name}</span>
             </div>
           ))}
         </div>
