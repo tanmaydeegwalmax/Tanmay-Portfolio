@@ -43,10 +43,11 @@ export default function AboutSection() {
         </div>
 
         {/* Right Column */}
-        <div className="flex flex-col items-start md:pl-10">
-          <h3 className="text-white/80 font-medium tracking-widest text-[10px] md:text-xs uppercase mb-6">Work with me</h3>
-          
-          <div className="flex flex-col gap-4 w-full max-w-md">
+        <div className="flex flex-col items-start md:items-end mt-16 md:mt-0">
+          <div className="w-full max-w-md flex flex-col items-start">
+            <h3 className="text-white/80 font-medium tracking-widest text-[10px] md:text-xs uppercase mb-6">Work with me</h3>
+            
+            <div className="flex flex-col gap-4 w-full">
             
             {/* Mail Card */}
             <button onClick={handleCopy} className="group flex w-full items-center justify-between p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-white/30 hover:bg-white/[0.05] transition-all text-left">
@@ -85,6 +86,7 @@ export default function AboutSection() {
               <span>Let's Work Together</span>
               <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
             </button>
+            </div>
           </div>
 
         </div>
