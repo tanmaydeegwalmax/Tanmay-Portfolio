@@ -78,7 +78,7 @@ export default function VideoCard({ project }: { project: Project }) {
         ) : project.youtubeId ? (
           <>
             <img 
-              src={`https://img.youtube.com/vi/${project.youtubeId}/maxresdefault.jpg`} 
+              src={`https://img.youtube.com/vi/${project.youtubeId}/${project.tag === "SHORT FORM" ? "hqdefault.jpg" : "maxresdefault.jpg"}`} 
               alt="Video Thumbnail" 
               className={`w-full h-full ${project.objectFit === "contain" ? "object-contain bg-black" : "object-cover"} opacity-100 transition-opacity`} 
             />
