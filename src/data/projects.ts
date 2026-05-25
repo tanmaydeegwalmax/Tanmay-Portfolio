@@ -12,7 +12,7 @@ export type Project = {
   objectFit?: "cover" | "contain";
 };
 
-export const categories = ["Featured", "AI Special", "Long Form", "Short Form", "Motion Graphics"];
+export const categories = ["Long Form", "Short Form", "Motion Graphics", "AI Special"];
 
 export const projects: Project[] = [
   // FEATURED
@@ -33,8 +33,8 @@ export const projects: Project[] = [
     stats: "",
     emoji: "📈",
     tag: "FEATURED",
-    localVideo: "/work/videos/How To Pick The Best Mutual Fund.mp4",
-    localThumbnail: "/work/thumbnails/How to Pick the Best Mutual Fund.jpg"
+    localVideo: "/work/videos/How To Pick The Best Mutual Fund - Featured Videos.mp4",
+    localThumbnail: "/work/thumbnails/How to Pick the Best Mutual Fund - Featured Videos.jpg"
   },
   {
     id: 103,
@@ -55,8 +55,8 @@ export const projects: Project[] = [
     stats: "",
     emoji: "💳",
     tag: "AI SPECIAL",
-    localVideo: "/work/videos/How To Use Credits Cards.mp4",
-    localThumbnail: "/work/thumbnails/How to Use Credits Cards.jpg"
+    localVideo: "/work/videos/How To Use Credits Cards - AI Special.mp4",
+    localThumbnail: "/work/thumbnails/How to Use Credits Cards - AI Special.jpg"
   },
   {
     id: 202,
@@ -67,6 +67,16 @@ export const projects: Project[] = [
     tag: "AI SPECIAL",
     localVideo: "/work/videos/Wealth Inequality.mp4",
     localThumbnail: "/work/thumbnails/Wealth Inequality.jpg"
+  },
+  {
+    id: 203,
+    title: "Gold Trade",
+    subtitle: "AI Generated",
+    stats: "",
+    emoji: "🪙",
+    tag: "AI SPECIAL",
+    localVideo: "/work/videos/Gold Trade.mp4",
+    localThumbnail: "/work/thumbnails/Gold Trade.jpg"
   },
 
   // LONG FORM
@@ -191,8 +201,8 @@ export const projects: Project[] = [
     stats: "",
     emoji: "📈",
     tag: "MOTION GRAPHICS",
-    localVideo: "/work/videos/How To Pick The Best Mutual Fund.mp4",
-    localThumbnail: "/work/thumbnails/How to Pick the Best Mutual Fund.jpg"
+    localVideo: "/work/videos/How To Pick The Best Mutual Fund - Motion Graphics.mp4",
+    localThumbnail: "/work/thumbnails/How to Pick the Best Mutual Fund - Motion Graphics.jpg"
   },
   {
     id: 504,
@@ -201,8 +211,8 @@ export const projects: Project[] = [
     stats: "",
     emoji: "💳",
     tag: "MOTION GRAPHICS",
-    localVideo: "/work/videos/How To Use Credits Cards.mp4",
-    localThumbnail: "/work/thumbnails/How to Use Credits Cards.jpg"
+    localVideo: "/work/videos/How To Use Credits Cards - Motion Graphics.mp4",
+    localThumbnail: "/work/thumbnails/How to Use Credits Cards - Motion Graphics.jpg"
   },
   {
     id: 505,

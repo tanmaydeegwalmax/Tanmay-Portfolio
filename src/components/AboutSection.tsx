@@ -82,10 +82,15 @@ export default function AboutSection() {
             </a>
 
             {/* Let's Work Together Button */}
-            <button className="group mt-4 flex items-center justify-center gap-3 w-full py-5 rounded-2xl border border-[#6b21a8]/50 bg-black text-white font-oswald text-sm uppercase tracking-widest hover:bg-[#6b21a8]/10 transition-colors shadow-[0_0_20px_rgba(107,33,168,0.1)] hover:shadow-[0_0_30px_rgba(107,33,168,0.2)]">
+            <a 
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=tanmaydeegwalofficial@gmail.com&su=${encodeURIComponent("Project Inquiry")}&body=${encodeURIComponent("Hi Tanmay,\n\nI came across your portfolio and would like to discuss a project.\n\nName: \nCompany/Brand: \nProject Type: \nTimeline: \nBudget: \nProject Details: ")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-4 flex items-center justify-center gap-3 w-full py-5 rounded-2xl border border-[#6b21a8]/50 bg-black text-white font-oswald text-sm uppercase tracking-widest hover:bg-[#6b21a8]/10 transition-colors shadow-[0_0_20px_rgba(107,33,168,0.1)] hover:shadow-[0_0_30px_rgba(107,33,168,0.2)]"
+            >
               <span>Let's Work Together</span>
               <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-            </button>
+            </a>
             </div>
           </div>
 

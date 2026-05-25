@@ -7,7 +7,7 @@ import VideoCard from "@/components/VideoCard";
 import { projects, categories } from "@/data/projects";
 
 export default function WorkPage() {
-  const [activeCategory, setActiveCategory] = useState("Featured");
+  const [activeCategory, setActiveCategory] = useState("Long Form");
 
   const filteredProjects = projects.filter(
     (p) => p.tag.toLowerCase() === activeCategory.toLowerCase()
@@ -47,11 +47,26 @@ export default function WorkPage() {
 
           {/* Right Column / Content Grid */}
           <section className="flex-grow">
-            <div className={`grid grid-cols-1 gap-6 ${activeCategory === "Short Form" ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
-              {filteredProjects.map((p) => (
-                <VideoCard key={p.id} project={p} />
-              ))}
-            </div>
+            {activeCategory === "AI Special" ? (
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-full md:w-[calc(57.5%-12px)] flex flex-col gap-6">
+                  {filteredProjects.filter(p => p.id !== 203).map((p) => (
+                    <VideoCard key={p.id} project={p} />
+                  ))}
+                </div>
+                <div className="w-full md:w-[calc(42.5%-12px)]">
+                  {filteredProjects.filter(p => p.id === 203).map((p) => (
+                    <VideoCard key={p.id} project={p} />
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className={`grid grid-cols-1 gap-6 ${activeCategory === "Short Form" ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
+                {filteredProjects.map((p) => (
+                  <VideoCard key={p.id} project={p} />
+                ))}
+              </div>
+            )}
             
             {filteredProjects.length === 0 && (
               <div className="w-full py-20 text-center text-white/50 text-sm tracking-widest uppercase">
