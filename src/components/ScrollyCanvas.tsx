@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FRAME_COUNT = 47; // 00 to 46
 
-export default function ScrollyCanvas() {
+export default function ScrollyCanvas({ onLoaded }: { onLoaded?: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [loaded, setLoaded] = useState(false);
   const imagesRef = useRef<HTMLImageElement[]>([]);
@@ -33,13 +33,14 @@ export default function ScrollyCanvas() {
         promises.push(promise);
         imagesRef.current.push(img);
       }
-      // Only wait for the first frame to load so the user sees the site immediately
-      await promises[0];
+      // Wait for all frames to load to ensure smooth scrolling
+      await Promise.all(promises);
       setLoaded(true);
+      if (onLoaded) onLoaded();
     };
 
     loadImages();
-  }, []);
+  }, [onLoaded]);
 
   useEffect(() => {
     if (!loaded || !canvasRef.current) return;

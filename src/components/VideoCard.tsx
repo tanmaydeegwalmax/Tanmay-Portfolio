@@ -85,18 +85,28 @@ export default function VideoCard({ project }: { project: Project }) {
             />
             {isHovered && (
               <div 
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/20 z-30 cursor-pointer group/scrub hover:h-1 transition-all"
+                className="absolute bottom-0 left-0 right-0 h-1 md:h-0.5 bg-white/20 z-30 cursor-pointer group/scrub md:hover:h-1 transition-all"
                 onClick={handleScrub}
                 onMouseDown={(e) => { e.preventDefault(); e.stopPropagation(); }}
                 onMouseMove={(e) => {
                   if (e.buttons === 1) handleScrub(e);
+                }}
+                onTouchMove={(e) => {
+                  const touch = e.touches[0];
+                  if (videoRef.current && videoRef.current.duration) {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const x = touch.clientX - rect.left;
+                    const percent = Math.max(0, Math.min(1, x / rect.width));
+                    videoRef.current.currentTime = videoRef.current.duration * percent;
+                    setProgress(percent * 100);
+                  }
                 }}
               >
                 <div 
                   className="absolute bottom-0 left-0 h-full bg-[#6b21a8] transition-all duration-75 group-hover/scrub:bg-[#8b5cf6] relative" 
                   style={{ width: `${progress}%` }} 
                 >
-                  <div className="w-3 h-3 bg-white rounded-full absolute -right-1.5 top-1/2 -translate-y-1/2 opacity-0 group-hover/scrub:opacity-100 transition-opacity shadow-[0_0_10px_rgba(255,255,255,0.5)] pointer-events-none" />
+                  <div className="w-3 h-3 bg-white rounded-full absolute -right-1.5 top-1/2 -translate-y-1/2 opacity-100 md:opacity-0 md:group-hover/scrub:opacity-100 transition-opacity shadow-[0_0_10px_rgba(255,255,255,0.5)] pointer-events-none" />
                 </div>
               </div>
             )}
